@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BugsListComponent } from './bugs-list/bugs-list.component';
+import { BugService } from '../services/bug.service';
+import { BugStatusNamePipe } from "../pipes/bugstatusname.pipe"
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { BugsListComponent } from './bugs-list/bugs-list.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    BugsListComponent
+    BugsListComponent,
+    BugStatusNamePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +35,7 @@ import { BugsListComponent } from './bugs-list/bugs-list.component';
     ]),
     NgbModule
   ],
-  providers: [],
+  providers: [BugService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
