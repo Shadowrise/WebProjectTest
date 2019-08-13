@@ -12,7 +12,8 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BugsListComponent } from './bugs-list/bugs-list.component';
 import { BugService } from '../services/bug.service';
-import { BugStatusNamePipe } from "../pipes/bugstatusname.pipe"
+import { BugStatusNamePipe } from '../pipes/bug-status-name.pipe';
+import { BugEditComponent } from './bug-edit/bug-edit.component'
 
 @NgModule({
   declarations: [
@@ -22,8 +23,10 @@ import { BugStatusNamePipe } from "../pipes/bugstatusname.pipe"
     CounterComponent,
     FetchDataComponent,
     BugsListComponent,
-    BugStatusNamePipe
+    BugStatusNamePipe,
+    BugEditComponent
   ],
+  entryComponents: [BugEditComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -31,7 +34,9 @@ import { BugStatusNamePipe } from "../pipes/bugstatusname.pipe"
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent }
+      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'bug-add', component: BugEditComponent },
+      { path: 'bug-edit/:id', component: BugEditComponent }
     ]),
     NgbModule
   ],

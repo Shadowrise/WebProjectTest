@@ -1,0 +1,7 @@
+<form #myForm="ngForm" novalidate (ngSubmit)="onSave(myForm)">
+  <div class="form-group">
+    <label for="bugEdit_description">Description</label>
+    <textarea id="bugEdit_description" [(ngModel)]="bug.description" class="form-control" rows="5" placeholder="Describe the problem"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

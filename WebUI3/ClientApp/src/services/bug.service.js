@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var BUGS = [
     {
         bugId: 1,
-        description: "bug 1",
+        description: 'bug 1',
         typeId: 1,
         statusId: 1,
         areaId: 1,
@@ -22,19 +22,19 @@ var BugStatusEnum;
 var BUG_STATUSES = [
     {
         statusId: BugStatusEnum.New,
-        name: "New"
+        name: 'New'
     },
     {
         statusId: BugStatusEnum.Processing,
-        name: "Processing"
+        name: 'Processing'
     },
     {
         statusId: BugStatusEnum.Resolved,
-        name: "Resolved"
+        name: 'Resolved'
     },
     {
         statusId: BugStatusEnum.Rejected,
-        name: "Rejected"
+        name: 'Rejected'
     }
 ];
 var BugService = /** @class */ (function () {
@@ -43,11 +43,17 @@ var BugService = /** @class */ (function () {
     BugService.prototype.getBugs = function () {
         return BUGS;
     };
+    BugService.prototype.getBugById = function (id) {
+        return BUGS.find(function (b) { return b.bugId === id; });
+    };
     BugService.prototype.getBugStatuses = function () {
         return BUG_STATUSES;
     };
-    BugService.prototype.addData = function (name) {
-        //this.data.push(name);
+    BugService.prototype.addBug = function (bug) {
+        bug.bugId = 2;
+        BUGS.push(bug);
+    };
+    BugService.prototype.updateBug = function (bug) {
     };
     return BugService;
 }());

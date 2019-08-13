@@ -15,4 +15,9 @@ export class BugsListComponent implements OnInit {
     this.bugs = this.bugService.getBugs();
   }
 
+  public currentBugId;
+  public selectBug(event: any, bug: IBug) {
+    this.currentBugId = bug.bugId;
+  }
+
 }

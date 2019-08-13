@@ -1,17 +1,17 @@
 export interface IBug {
   bugId: number;
   description: string;
-  typeId: number;
-  statusId: number;
-  areaId: number;
-  userId: number;
+  typeId?: number;
+  statusId?: number;
+  areaId?: number;
+  userId?: number;
   dateCreation: Date;
 };
 
 const BUGS: IBug[] = [
   {
     bugId: 1,
-    description: "bug 1",
+    description: 'bug 1',
     typeId: 1,
     statusId: 1,
     areaId: 1,
@@ -35,19 +35,19 @@ export enum BugStatusEnum {
 const BUG_STATUSES: IBugStatus[] = [
   {
     statusId: BugStatusEnum.New,
-    name: "New"
+    name: 'New'
   },
   {
     statusId: BugStatusEnum.Processing,
-    name: "Processing"
+    name: 'Processing'
   },
   {
     statusId: BugStatusEnum.Resolved,
-    name: "Resolved"
+    name: 'Resolved'
   },
   {
     statusId: BugStatusEnum.Rejected,
-    name: "Rejected"
+    name: 'Rejected'
   }
 ];
 
@@ -57,12 +57,20 @@ export class BugService {
     return BUGS;
   }
 
+  getBugById(id: number) {
+    return BUGS.find((b) => b.bugId === id);
+  }
+
   getBugStatuses(): IBugStatus[] {
     return BUG_STATUSES;
   }
 
-  addData(name: string) {
+  addBug(bug: IBug) {
+    bug.bugId = 2;
+    BUGS.push(bug);
+  }
 
-    //this.data.push(name);
+  updateBug(bug: IBug) {
+    
   }
 }
