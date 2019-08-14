@@ -1,23 +1,25 @@
-<div class="navbar-dark">
+<div class="navbar navbar-dark border-dark">
   <div class="btn-group">
     <button type="button" class="btn btn-secondary" [routerLink]='["bug-add"]'>Add</button>
     <button type="button" class="btn btn-secondary" [routerLink]='["bug-edit", currentBugId]' [disabled]="!currentBugId">Edit</button>
     <button type="button" class="btn btn-secondary">Delete</button>
   </div>
 </div>
-<table class="table table-striped table-bordered">
+<table class="table table-bordered">
   <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Description</th>
-      <th scope="col">Status</th>
-    </tr>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Description</th>
+    <th scope="col">Status</th>
+    <th scope="col">Created</th>
+  </tr>
   </thead>
   <tbody>
     <tr *ngFor="let bug of bugs; index as i" (mousedown)="selectBug($event, bug)" [class.table-active]="bug.bugId === currentBugId">
       <td>{{ bug.bugId | number}}</td>
       <td>{{ bug.description }}</td>
       <td>{{ bug.statusId | bugStatusName }}</td>
+      <td>{{ bug.dateCreation | date: 'dd.MM.yyyy HH:mm' }}</td>
     </tr>
   </tbody>
 </table>
