@@ -5,21 +5,13 @@
     <button type="button" class="btn btn-secondary">Delete</button>
   </div>
 </div>
-<table class="table table-bordered">
-  <thead>
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">Description</th>
-    <th scope="col">Status</th>
-    <th scope="col">Created</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let bug of bugs; index as i" (mousedown)="selectBug($event, bug)" [class.table-active]="bug.bugId === currentBugId">
-      <td>{{ bug.bugId | number}}</td>
-      <td>{{ bug.description }}</td>
-      <td>{{ bug.statusId | bugStatusName }}</td>
-      <td>{{ bug.dateCreation | date: 'dd.MM.yyyy HH:mm' }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="bugs">
+  <div class="bug" *ngFor="let bug of bugs; index as i" (mousedown)="selectBug($event, bug)" [class.table-active]="bug.bugId === currentBugId">
+    <div class="bug-info">
+      <div class="bug-id">ID: {{ bug.bugId | number}}</div>
+      <div class="bug-status">{{ bug.statusId | bugStatusName }}</div>
+    </div>
+    <div class="bug-description">{{ bug.description }}</div>
+    <div class="bug-created">Created: {{ bug.dateCreation | date: 'dd.MM.yyyy HH:mm' }}</div>
+  </div>
+</div>

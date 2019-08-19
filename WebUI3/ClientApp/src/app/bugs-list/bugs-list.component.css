@@ -1,3 +1,64 @@
-/*.navbar {
-  border: 1px solid black
-}*/
+.bugs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.bugs .bug {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid gray;
+  background: linear-gradient(to right, #b2fefa, #0ed2f7);
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin: 20px;
+  box-shadow: 0 0 5px black;
+  transition: 0.5s;
+  font-size: 15pt;
+}
+
+.bugs .bug:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 15px #0ed2f7;
+  cursor: pointer;
+}
+
+.bugs .bug .bug-info {
+  margin: 5px;
+  flex-basis: 200px;
+}
+
+.bugs .bug .bug-info .bug-id {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-radius: 3px 3px 0 0;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.bugs .bug .bug-info .bug-status {
+  padding: 5px;
+  background: linear-gradient(to right, #fcd1d7, #dc4856);
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-radius: 0 0 3px 3px;
+  font-weight: bold;
+}
+
+.bugs .bug .bug-description {
+  margin: 5px;
+  flex-grow: 1;
+  flex-basis: 100px;
+  align-self: flex-start;
+}
+
+.bugs .bug .bug-created {
+  margin: 5px;
+  align-self: flex-start;
+  font-weight: bold;
+}
