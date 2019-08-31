@@ -51,10 +51,19 @@ const BUG_STATUSES: IBugStatus[] = [
   }
 ];
 
+import { Component, Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable'; 
+
+@Injectable()
 export class BugService {
 
-  getBugs(): IBug[] {
-    return BUGS;
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
+   
+  }
+
+  getBugs(): Observable<IBug[]> {
+    return this.http.get<IBug[]>(this.baseUrl + 'api/Bugs/GetBugs');
   }
 
   getBugById(id: number) {

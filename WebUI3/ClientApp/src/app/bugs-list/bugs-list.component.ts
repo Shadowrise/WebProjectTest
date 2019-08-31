@@ -12,7 +12,7 @@ export class BugsListComponent implements OnInit {
   constructor(private bugService: BugService) { }
 
   ngOnInit() {
-    this.bugs = this.bugService.getBugs();
+    this.bugService.getBugs().subscribe(bugs => this.bugs = bugs);
   }
 
   public currentBugId;
